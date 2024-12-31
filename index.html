@@ -37,15 +37,20 @@
       align-items: center;
     }
     input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
       margin-right: 10px;
       accent-color: #4CAF50;
+      cursor: pointer;
     }
     label {
       font-size: 16px;
-    }
-    .checkbox-label:hover {
-      text-decoration: underline;
+      flex-grow: 1;
       cursor: pointer;
+    }
+    .checkbox-label.completed {
+      text-decoration: line-through;
+      color: #6c757d;
     }
     footer {
       text-align: center;
@@ -53,37 +58,84 @@
       font-size: 14px;
       color: #6c757d;
     }
+    .shopping-list {
+      background: #f1f8f4;
+      border-left: 4px solid #4CAF50;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .shopping-list h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
   </style>
+  <script>
+    function toggleCompletion(event) {
+      const label = event.target.nextElementSibling;
+      label.classList.toggle('completed');
+    }
+  </script>
 </head>
 <body>
   <div class="container">
     <h1>Waldorf Salad Recipe</h1>
 
+    <div class="shopping-list">
+      <h2>Shopping List</h2>
+      <ul>
+        <li>
+          <input type="checkbox" id="shop-apples" onclick="toggleCompletion(event)" />
+          <label for="shop-apples" class="checkbox-label">Apples</label>
+        </li>
+        <li>
+          <input type="checkbox" id="shop-celery" onclick="toggleCompletion(event)" />
+          <label for="shop-celery" class="checkbox-label">Celery</label>
+        </li>
+        <li>
+          <input type="checkbox" id="shop-grapes" onclick="toggleCompletion(event)" />
+          <label for="shop-grapes" class="checkbox-label">Seedless grapes</label>
+        </li>
+        <li>
+          <input type="checkbox" id="shop-walnuts" onclick="toggleCompletion(event)" />
+          <label for="shop-walnuts" class="checkbox-label">Walnuts</label>
+        </li>
+        <li>
+          <input type="checkbox" id="shop-mayonnaise" onclick="toggleCompletion(event)" />
+          <label for="shop-mayonnaise" class="checkbox-label">Mayonnaise</label>
+        </li>
+        <li>
+          <input type="checkbox" id="shop-lettuce" onclick="toggleCompletion(event)" />
+          <label for="shop-lettuce" class="checkbox-label">Lettuce (optional)</label>
+        </li>
+      </ul>
+    </div>
+
     <div class="recipe-section">
       <h2>Ingredients</h2>
       <ul>
         <li>
-          <input type="checkbox" id="apples" />
+          <input type="checkbox" id="apples" onclick="toggleCompletion(event)" />
           <label for="apples" class="checkbox-label">2 cups diced apples</label>
         </li>
         <li>
-          <input type="checkbox" id="celery" />
+          <input type="checkbox" id="celery" onclick="toggleCompletion(event)" />
           <label for="celery" class="checkbox-label">1 cup chopped celery</label>
         </li>
         <li>
-          <input type="checkbox" id="grapes" />
+          <input type="checkbox" id="grapes" onclick="toggleCompletion(event)" />
           <label for="grapes" class="checkbox-label">1 cup seedless grapes, halved</label>
         </li>
         <li>
-          <input type="checkbox" id="walnuts" />
+          <input type="checkbox" id="walnuts" onclick="toggleCompletion(event)" />
           <label for="walnuts" class="checkbox-label">1/2 cup chopped walnuts</label>
         </li>
         <li>
-          <input type="checkbox" id="mayonnaise" />
+          <input type="checkbox" id="mayonnaise" onclick="toggleCompletion(event)" />
           <label for="mayonnaise" class="checkbox-label">1/2 cup mayonnaise</label>
         </li>
         <li>
-          <input type="checkbox" id="lettuce" />
+          <input type="checkbox" id="lettuce" onclick="toggleCompletion(event)" />
           <label for="lettuce" class="checkbox-label">Lettuce leaves for serving (optional)</label>
         </li>
       </ul>
@@ -93,19 +145,19 @@
       <h2>Steps</h2>
       <ol>
         <li>
-          <input type="checkbox" id="step1" />
+          <input type="checkbox" id="step1" onclick="toggleCompletion(event)" />
           <label for="step1" class="checkbox-label">Combine apples, celery, grapes, and walnuts in a bowl.</label>
         </li>
         <li>
-          <input type="checkbox" id="step2" />
+          <input type="checkbox" id="step2" onclick="toggleCompletion(event)" />
           <label for="step2" class="checkbox-label">Add mayonnaise and mix until well coated.</label>
         </li>
         <li>
-          <input type="checkbox" id="step3" />
+          <input type="checkbox" id="step3" onclick="toggleCompletion(event)" />
           <label for="step3" class="checkbox-label">Chill the salad in the refrigerator for at least 30 minutes.</label>
         </li>
         <li>
-          <input type="checkbox" id="step4" />
+          <input type="checkbox" id="step4" onclick="toggleCompletion(event)" />
           <label for="step4" class="checkbox-label">Serve on a bed of lettuce, if desired.</label>
         </li>
       </ol>
